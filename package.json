@@ -1,0 +1,16 @@
+{
+  "name": "remind_me_server",
+  "version": "1.0.0",
+  "description": "backend for RemindMe Hybrid App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tyler Hall",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.0.0",
+    "mongoose": "^3.8.21",
+    "body-parser": "~1.0.1"
+  }
+}

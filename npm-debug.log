@@ -1,0 +1,37 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'prune' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 warn package.json remind_me_server@1.0.0 No repository field.
+5 warn package.json remind_me_server@1.0.0 No README data
+6 verbose node_modules/bcrypt unbuild
+7 verbose node_modules/mongojs unbuild
+8 verbose node_modules/restify unbuild
+9 info preuninstall bcrypt@0.8.0
+10 info preuninstall mongojs@0.18.0
+11 info preuninstall restify@2.8.4
+12 info uninstall bcrypt@0.8.0
+13 info uninstall mongojs@0.18.0
+14 info uninstall restify@2.8.4
+15 verbose true,/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules,/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules unbuild bcrypt@0.8.0
+16 info postuninstall bcrypt@0.8.0
+17 verbose true,/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules,/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules unbuild mongojs@0.18.0
+18 info postuninstall mongojs@0.18.0
+19 verbose true,/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules,/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules unbuild restify@2.8.4
+20 verbose /Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules/.bin,[object Object] binRoot
+21 error Error: EACCES, unlink '/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules/.bin/report-latency'
+21 error  { [Error: EACCES, unlink '/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules/.bin/report-latency']
+21 error   errno: 3,
+21 error   code: 'EACCES',
+21 error   path: '/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules/.bin/report-latency' }
+22 error Please try running this command again as root/Administrator.
+23 error System Darwin 14.0.0
+24 error command "node" "/usr/local/bin/npm" "prune"
+25 error cwd /Users/apple/Documents/remind_Me/remind_me/dev/server
+26 error node -v v0.10.33
+27 error npm -v 1.4.28
+28 error path /Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules/.bin/report-latency
+29 error code EACCES
+30 error errno 3
+31 error stack Error: EACCES, unlink '/Users/apple/Documents/remind_Me/remind_me/dev/server/node_modules/.bin/report-latency'
+32 verbose exit [ 3, true ]
