@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
 app.use(cors());//CORS FUNCTIONALITY
 
-
+/*
 //added for CORS functionality
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
-
+*/
 
 
 var port = process.env.PORT ||  5000; //set port to listen on
@@ -39,6 +39,9 @@ var router = express.Router(); //instance of express router
 // middleware to use for all requests
 router.use(function(req, res, next) {
   //log whenever anything is happening
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   console.log('Something is happening.');
   next(); // make sure we go to the next routes and don't stop here
 });
