@@ -92,7 +92,7 @@ router.route('/:username')
         res.send(err);
       }
       res.json(user[0]);//maybe take [0] out
-      console.log('Sending data: ' + user[0]);
+      console.log(user[0]);
     });
 
   })//end get operation
@@ -123,7 +123,7 @@ router.route('/:username')
             console.log('Added new todo \"' + todo.task + '\" to profile '
             + user.username);
             //send updated data back to client
-            res.send(user);
+            res.send(200);
           }
         }
       );
@@ -168,7 +168,7 @@ router.route('/:username/:_id')
           if(err)
             res.send(err);
           else
-            res.send({message:'todo updated!'});
+            res.send(200);
         });
   })
 
