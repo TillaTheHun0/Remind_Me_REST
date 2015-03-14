@@ -163,7 +163,7 @@ router.route('/:username/:_id')
           if(err)
             res.send(err);
           else
-            res.json({message:'todo updated!'});
+            res.send({message:'todo updated!'});
         });
   })
 
