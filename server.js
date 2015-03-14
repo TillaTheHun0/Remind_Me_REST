@@ -19,15 +19,15 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
 app.use(cors());//CORS FUNCTIONALITY
 
-/*
+
 //added for CORS functionality
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers",
-  "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
-*/
+
 
 
 var port = process.env.PORT ||  5000; //set port to listen on
@@ -128,7 +128,7 @@ router.route('/:username')
 //routes for specific todos
 router.route('/:username/:_id')
   //updating specific todo
-  .put(cors(), function(req,res){
+  .put(function(req,res){
       //create todo to obey schema (hacky)
       var todo = new Todo({
         task: req.body.task,
