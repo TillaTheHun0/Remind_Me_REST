@@ -128,7 +128,7 @@ router.route('/:username')
 //routes for specific todos
 router.route('/:username/:_id')
   //updating specific todo
-  .put(function(req,res){
+  .put(cors(), function(req,res){
       //create todo to obey schema (hacky)
       var todo = new Todo({
         task: req.body.task,
