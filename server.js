@@ -18,6 +18,7 @@ mongoose.connect('mongodb://admin:lame53@ds033669.mongolab.com:33669/remind_me')
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
 app.use(cors());//CORS FUNCTIONALITY
+
 /*
 //added for CORS functionality
 app.use(function(req, res, next) {
@@ -27,6 +28,7 @@ app.use(function(req, res, next) {
   next();
 });
 */
+
 
 var port = process.env.PORT ||  5000; //set port to listen on
 
