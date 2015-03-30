@@ -100,6 +100,7 @@ router.route('/:username')
       var todo = new Todo({
         task: req.body.task,
         date: req.body.date,
+        created: req.body.created,
         loc:{
           long:req.body.long,
           lat:req.body.lat
@@ -126,13 +127,14 @@ router.route('/:username')
       );
   });
 //routes for specific todos
-router.route('/:username/:_id')
+router.route('/:username/:created')
   //updating specific todo
   .put(function(req,res){
       //create todo to obey schema (hacky)
       var todo = new Todo({
         task: req.body.task,
         date: req.body.date,
+        created: req.body.created,
         loc:{
           long:req.body.long,
           lat:req.body.lat
@@ -141,18 +143,19 @@ router.route('/:username/:_id')
         push_notif: req.body.push_notif
       });
       //cast id to mongoDB ObjectId
-      var id = new mongoose.Types.ObjectId(req.body._id);
+      //var id = new mongoose.Types.ObjectId(req.body._id);
       //query statement
       User.findOneAndUpdate(
         //query by username and match element by casted id
         { username: req.params.username,
           //maybe do todos.id later (cleaner looking)
-          'todos': {'$elemMatch': {_id: id}}
+          'todos': {'$elemMatch': { created: todo.created}}
         },
         { $set:
           {
             'todos.$.task': todo.task,
             'todos.$.date': todo.date,
+            'todos.$.created': todo.created,
             'todos.$.loc.long': todo.loc.long,
             'todos.$.loc.lat': todo.loc.lat,
             'todos.$.completed': todo.completed,
@@ -173,18 +176,17 @@ router.route('/:username/:_id')
   .delete(function(req,res){
     //cast id to mongoDB ObjectId
     console.log("About to delete todo" + req.params._id);
-    var id = new mongoose.Types.ObjectId(req.params._id);
+    //var id = new mongoose.Types.ObjectId(req.params._id);
     User.findOneAndUpdate(
       { username: req.params.username},
       {
-        $pull: {'todos':  {_id: id}}
+        $pull: {'todos':  {created: req.params.created}}
       },
       function(err, todo){
-        //console.log(req.params.todo_id + ' ' + req.params.username)
         if(err)
           res.send(err);
         else
-          res.json({message: 'Todo ' + todo.task + ' removed'});
+          res.send(200);
       });
   });
 //more routes for API here
