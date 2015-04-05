@@ -136,8 +136,8 @@ router.route('/:username/:created')
         date: req.body.date,
         created: req.body.created,
         loc:{
-          long:req.body.long,
-          lat:req.body.lat
+          long:req.body.loc.long,
+          lat:req.body.loc.lat
         },
         completed: req.body.completed,
         push_notif: req.body.push_notif
