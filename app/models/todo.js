@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var TodoSchema = new Schema({
   task: String,
   date: {type: Date, default: Date.now},
-  created: Number,
+  created: String,
   loc: {
     long: Number,
     lat: Number
