@@ -81,6 +81,22 @@ router.route('/users')
 //single user routes
 
 router.route('/:username')
+
+  //create a user. This will only be done when a new user
+  //first creates account for app
+  .post(function(req,res){
+    //setup new user and add pertinent information
+    var user = new User();//new isntance of user model (users.js)
+    user.username = req.body.username;
+    user.passwd = req.body.passwd;
+    user.save(function(err){
+      if(err){
+        res.send(err);
+      }
+      res.json({message: 'User ' + req.body.username + ' Added!'});
+    });
+  })//end new user post operation
+
   //get operation
   .get(function(req,res){
     //in query use req.params when hooked to frontend
