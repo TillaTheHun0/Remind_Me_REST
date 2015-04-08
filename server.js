@@ -57,7 +57,7 @@ router.route('/users')
     //setup new user and add pertinent information
     var user = new User();//new isntance of user model (users.js)
     user.username = req.body.username;
-    user.passwd = req.body.passwd;
+    user.passwd = req.body.password;
     user.save(function(err){
       if(err){
         res.send(err);
@@ -88,7 +88,7 @@ router.route('/:username')
     //setup new user and add pertinent information
     var user = new User();//new isntance of user model (users.js)
     user.username = req.body.username;
-    user.passwd = req.body.passwd;
+    user.passwd = req.body.password;
     user.save(function(err){
       if(err){
         res.send(err);
